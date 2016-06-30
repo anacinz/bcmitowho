@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>body {
+    background-image: url("BCMITO.png");
+    background-repeat: repeat-x;
+    background-color: sienna;
+}
+</style>
+
+<meta charset="utf-8">
+<script LANGUAGE="JavaScript">
+//Retira caracteres ilegíveis
+ 
+  function init()
+              {
+
+                             
+
+              questions = new Array()
+              questions[1] = "Qual das seguintes relações é verdadeira:"
+              questions[2] = "O ponto de fusão e o _______ ocorrem à mesma temperatura."
+              questions[3] = "O segundo maior planeta que possui anéis é:"
+              questions[4] = "A remoção da camada superior do solo ou das rochas pela ação do vento e/ou da água é chamada de: "
+              questions[5] = "A principal fonte de calor do sistema globo-atmosfera é:"
+              questions[6] = "Se quisermos um computador que suporte os jogos mais pesados e com gráficos realistas é necessário ter quais peças potentes e sofisticadas?"
+              
+              
+
+              answerA = new Array()
+              answerA[1] = "cosec A / sen A = cos A. "
+              answerA[2] = "Ponto de ebulição ."
+              answerA[3] = "Urano."
+              answerA[4] = "Desintoxicação."
+              answerA[5] = "A actividade vulcânica."
+              answerA[6] = "Fonte de alimentação, Gabinete e Disco Rígido."
+              
+              
+
+              answerB = new Array()
+              answerB[1] = "sen A / cos A = tan A."
+              answerB[2] = "Ponto de fusão."
+              answerB[3] = "Júpiter."
+              answerB[4] = "Corrosão."
+              answerB[5] = "A actividade humana."
+              answerB[6] = "Disco rígidos memórias DDR2."
+             
+              
+
+              answerC = new Array()
+              answerC[1] = "tan A / cot A = sen A."
+              answerC[2] = "Ponto de solidificação."
+              answerC[3] = "Saturno."
+              answerC[4] = "Erosão."
+              answerC[5] = "A radiação solar."
+              answerC[6] = "Placa de Vídeo, Memória, Processador, Fonte de Alimentação e Placa-Mãe."
+              
+             
+
+              answerD = new Array()
+              answerD[1] = "cos A / sen A = sec A."
+              answerD[2] = "Ponto de vaporização ."
+              answerD[3] = "Netuno."
+              answerD[4] = "Desalinhamento ."
+              answerD[5] = "A radiação emitida pela Terra."
+              answerD[6] = "Cooler e Placa-Mãe."
+              
+          
+
+              rightAns = new Array
+              rightAns[1] = "b"
+              rightAns[2] = "c"
+              rightAns[3] = "c"
+              rightAns[4] = "c"
+              rightAns[5] = "c"
+              rightAns[6] = "c"
+              
+              
+
+              
+              
+              
+
+              }
+
+function nextQuestion(form)
+
+//Informa o numero total de questões
+
+{   var quizEnd = eval(6 * 1);
+
+    if(form.questNo.value == quizEnd) {
+      
+
+       form.results.value = "GG WP. Veja onde estás em relação à este curso lindo."; } else {
+
+    if(form.questNo.value == "") {form.questNo.value = 1} else {
+    
+       form.questNo.value = eval(form.questNo.value) + 1;
+
+    }
+
+    form.question.value = questions[form.questNo.value];
+
+    form.choiceA.value = answerA[form.questNo.value];
+
+    form.choiceB.value = answerB[form.questNo.value];
+
+    form.choiceC.value = answerC[form.questNo.value];
+
+    form.choiceD.value = answerD[form.questNo.value];
+
+    form.yourChoice.value = "";
+
+    form.results.value = "";
+
+    if(form.myScore.value == "") {form.myScore.value = 0; } else {
+                                                  form.myScore.value = form.myScore.value; }
+
+   }
+
+}
+
+   function checkAnswer(form) {
+     
+      var myScore = 0;
+      var valor = 0;
+
+      if(form.results.value != "") {form.results.value = "Desculpe, você já respondeu essa questão.  Recomeçe o quiz ou vá para a próxima questão. "; }
+
+      else if(form.yourChoice.value == rightAns[form.questNo.value]) {
+      form.myScore.value = eval(form.myScore.value) + eval(1);
+      form.results.value = "Parabéns!  Você acertou! Você acertou " + form.myScore.value + " de " + form.questNo.value + ".  Clique em ''Próxima'' para continuar."; } else {
+      
+      form.results.value = "Desculpe, você errou. Prossiga para a próxima questão.  Seu placar atual é de   " + form.myScore.value + " de " + form.questNo.value + ".  Clique em  ''Próximo'' para continuar." }
+
+   
+   valor = form.myScore.value / form.questNo.value;
+
+   form.percent.value = parseInt(valor * 100,10);
+   //resultado em porcentagem
+   if(valor > .90) {form.grade.value = "BCMITO"; } else if(valor > .80) {form.grade.value = "BCMITO"; } else if(valor > .70) {form.grade.value = "QUASE LÁ"; } else if(valor > .60) {form.grade.value = "QUASE LÁ"; } else {form.grade.value = "PADAWAN"; }
+    }
+
+
+function clearForm(form)
+//resetar formulario
+{
+
+    
+    form.questNo.value = "";
+    form.question.value = "";S
+    form.choiceA.value = "";
+    form.choiceB.value = "";
+    form.choiceC.value = "";
+    form.choiceD.value = "";
+    form.yourChoice.value = "";
+    form.results.value = "";
+    form.myScore.value = "";
+    form.percent.value = "";
+    form.grade.value = "";
+    
+
+}
+
+
+
+
+
+</script>
+</head>
+
+  
+<body onLoad="init()">
+<form method="POST">
+  <div align="center"><center><table BORDER="1">
+    <tr>
+      <td COLSPAN="2" BGCOLOR="#0000FF"><div align="center"><center><p><font SIZE="+3"
+      COLOR="#FFFFFF">QUEM QUER SER UM BCMITO</font></td>
+    </tr>
+    <tr>
+      <td COLSPAN="2" BGCOLOR="#0000FF"><div align="center"><center><p><font SIZE="-1"
+      COLOR="#FFFFFF"> <a HREF=>
+       </font> </p>
+      </center></div><div align="center"><center><p><font COLOR="#FFFFFF">Clique em "Próxima" para começar. BOA SORTE!</font> </td>
+    </tr>
+    <tr>
+      <td><b>Questão&nbsp;#:</b></td>
+      <td ALIGN="LEFT"><input TYPE="TEXT" NAME="questNo" SIZE="4"></td>
+    </tr>
+    <tr>
+      <td><b>Pergunta:</b></td>
+      <td><div align="center"><center><p><textarea COLS="70" ROWS="2" name="question"
+      wrap="virtual"></textarea></td>
+    </tr>
+    <tr>
+      <td ALIGN="RIGHT"><b>a)</b></td>
+      <td><div align="center"><center><p><input TYPE="TEXT" NAME="choiceA" SIZE="75"></td>
+    </tr>
+    <tr>
+      <td ALIGN="RIGHT"><b>b)</b></td>
+      <td><div align="center"><center><p><input TYPE="TEXT" NAME="choiceB" SIZE="75"></td>
+    </tr>
+    <tr>
+      <td ALIGN="RIGHT"><b>c)</b></td>
+      <td><div align="center"><center><p><input TYPE="TEXT" NAME="choiceC" SIZE="75"></td>
+    </tr>
+    <tr>
+      <td ALIGN="RIGHT"><b>d)</b></td>
+      <td><div align="center"><center><p><input TYPE="TEXT" NAME="choiceD" SIZE="75"></td>
+    </tr>
+    <tr>
+      <td ALIGN="RIGHT"><b>Sua resposta:</b></td>
+      <td><input TYPE="TEXT" NAME="yourChoice" SIZE="4"></td>
+    </tr>
+    <tr>
+      <td COLSPAN="2"><div align="center"><center><p><input TYPE="button"
+      VALUE="Confirmar" onClick="checkAnswer(this.form)"><input TYPE="button"
+      VALUE="Próxima" onClick="nextQuestion(this.form)"> <input TYPE="reset"
+      VALUE="Recomeçar" onClick="clearForm(this.form)"></td>
+    </tr>
+    <tr>
+      <td ALIGN="RIGHT"><b>Resultados:</b></td>
+      <td><div align="center"><center><p><textarea COLS="70" ROWS="1" name="results"
+      wrap="virtual"></textarea></td>
+    </tr>
+    <tr>
+      <td ALIGN="RIGHT"><b>Nota:</b></td>
+      <td><b>Acertos:</b><input TYPE="TEXT" NAME="myScore" SIZE="4">&nbsp;&nbsp;<b>Porcentagem:</b><input
+
+      TYPE="TEXT" NAME="percent" SIZE="6">&nbsp;&nbsp;<b>Nota:</b><input TYPE="TEXT"
+      NAME="grade" SIZE="6"></td>
+     
+    </tr>
+  </table>
+  </center></div>
+</form>
+
+</body>
